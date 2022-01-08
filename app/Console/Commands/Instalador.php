@@ -42,13 +42,13 @@ class Instalador extends Command
      */
     public function handle()
     {
-        if(!$this->verificar())
-        {
+        if(!$this->verificar()){
             $rol = $this->crearRolSuperAdmin();
             $usuario = $this->crearUsuarioSuperAdmin();
+           $usuario->roles()->attach($rol);
+           $this->line('El Rol y Usuario Administrador se instalaron correctamente');
             //Relacionarlo
-        }else 
-        {
+        }else {
             $this->error('No se puede ejecutar el instalador porque ya hay un roll creado');
         }
        
