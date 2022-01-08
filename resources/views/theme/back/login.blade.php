@@ -66,6 +66,9 @@
               /></span>
             </div>
             <!-- Form -->
+            @if ($errors->any())
+              <x-alert tipo="danger" :mensaje="$errors" />
+            @endif
             <form
               class="form-horizontal mt-3"
               id="loginform"
@@ -161,6 +164,13 @@
     <script src="{{asset("assets/back/libs/jquery/dist/jquery.min.js")}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset("assets/back/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}"></script>
+    <!-- Plugins -->
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.validate.min.js")}}"></script>
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/localization/messages_es.js")}}"></script>
+    <!-- Plugins de paginas especificas -->
+    @yield("scriptsPlugins")
+    <!-- Plugins de paginas especificas -->
+    @yield("scripts")
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
